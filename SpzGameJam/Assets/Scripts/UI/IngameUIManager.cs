@@ -60,9 +60,7 @@ namespace GameJam.UI
 
         public void Initialize( InitParam _param )
         {
-            base.Initialize( _param );
-            SMachine.Initialize(this);
-
+            base.Initialize( _param );            
             TopUICtrl?.Initialize( new TopUIController.InitParam() );
             BotUICtrl?.Initialize( new BottomUIController.InitParam() );
         }
@@ -81,6 +79,7 @@ namespace GameJam.UI
         protected override void InitMachine()
         {
             base.InitMachine();
+            SMachine.Initialize(this);
             SMachine.Start(INIT_STATE);
             PushNextState(INIT_STATE);
 
