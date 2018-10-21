@@ -54,6 +54,11 @@ MonoBehaviour:
   m_ButtonUIPrefab: {fileID: 7519423767777815558, guid: 632f9032721db467aafa39ce71b1a366,
     type: 3}
   m_ButtonUIRoot: {fileID: 7593630830690250450}
+  buttonImages:
+  - {fileID: 21300000, guid: 483143c46f991431286d434a2cb47dd6, type: 3}
+  - {fileID: 21300000, guid: a08c6bad19c3f49588f59e5fb3e81264, type: 3}
+  - {fileID: 21300000, guid: ccd4df20f05de4548b5f86d43897e94d, type: 3}
+  - {fileID: 21300000, guid: f7f8e9923fcef4b21b3cad5095a0b694, type: 3}
 --- !u!222 &844988986691278866
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -35,6 +35,9 @@ namespace GameJam.UI
         Transform ButtonUIRoot{get{return m_ButtonUIRoot;}}
 
         List<NormalButtonController> m_Buttons = new List<NormalButtonController>();
+
+        [SerializeField]
+        Sprite[] buttonImages;
         #endregion //) ===== MEMBER_VARIABLES =====
 
         //-----------------------------------------
@@ -98,15 +101,28 @@ namespace GameJam.UI
         /// ボタン選択肢更新
         /// </summary>
         /// <param name="_settings"></param>
-        public void UpdateButtons( params ButtonSettings[] _settings )
+        public void ResetButtons()
         {
-            for (int i = 0; i < _settings.Length; i++)
+            Shuffle<NormalButtonController>(ref m_Buttons);
+            for (int i = 0; i < m_Buttons.Count; i++)
             {
                 var p = new NormalButtonController.InitParam();
-                p.ItemIndex = _settings[i].Index;
-                p.ButtonSprite = _settings[i].ButtonImage;
+                p.ItemIndex = i;
+                p.ButtonSprite = buttonImages[i];
                 p.OnButtonClicked = OnButtonClicked;
                 m_Buttons[i].Init( p );
+            }
+        }
+
+        void Shuffle<T>( ref List<T> list)
+        {
+            int n = list.Count;
+            for (int i = 0; i < n; i++)
+            {
+                int r = i + UnityEngine.Random.Range( 0, n - i );
+                T temp = list[r];
+                list[r] = list[i];
+                list[i] = temp;
             }
         }
         #endregion //) ===== INITIALIZE =====

@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         if (panelSpawnTimer > panelSpawnInternal)
         {
             panelManager?.SpawnPatternPanel();
+            GameJam.UI.IngameUIManager.I.ResetButtons();
             panelSpawnTimer = 0;
         }
 

@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animator: {fileID: 5555324738959743770}
-  m_buttonImage: {fileID: 0}
+  m_buttonImage: {fileID: 8021711850646522227}
   m_disabledButtonImage: {fileID: 0}
 --- !u!1 &8139366396871507022
 GameObject:
