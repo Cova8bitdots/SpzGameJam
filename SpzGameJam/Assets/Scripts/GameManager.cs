@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private float panelSpawnInternal = 2f;
     private float gameTime = 0;
 
-    [SerializeField] PatternPanelManager panelManager;
+    [SerializeField] PatternPanelManager panelManager = null;
 
     void Awake()
     {
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         panelSpawnTimer += Time.deltaTime;
         if (panelSpawnTimer > panelSpawnInternal)
         {
-            panelManager.SpawnPatternPanel();
+            panelManager?.SpawnPatternPanel();
             panelSpawnTimer = 0;
         }
     }
