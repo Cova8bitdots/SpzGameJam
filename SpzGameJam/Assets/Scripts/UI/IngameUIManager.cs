@@ -98,5 +98,27 @@ namespace GameJam.UI
             TopUICtrl?.AddText( _value );
         }
         #endregion //) ===== SCORE =====
+
+
+        //-----------------------------------------
+        // BotUI 管理
+        //-----------------------------------------
+        #region ===== BOT_UI =====
+
+        /// <summary>
+        /// 次のポーズ設定用
+        /// </summary>
+        /// <param name="_images"></param>
+        public void SetNextButtonImages( params Sprite[] _images )
+        {
+            ButtonSettings[] settings = new ButtonSettings[_images.Length];
+            for (int i = 0; i < settings.Length; i++)
+            {
+                settings[i] = new ButtonSettings(){ Index = i, ButtonImage = _images[i]};
+            }
+
+            BotUICtrl?.UpdateButtons( settings );
+        }
+        #endregion //) ===== BOT_UI =====
     }
 }
