@@ -326,7 +326,7 @@ RectTransform:
   - {fileID: 1637259759}
   - {fileID: 752809800}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -530,7 +530,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &752809799
 GameObject:
@@ -853,7 +853,7 @@ PrefabInstance:
     - target: {fileID: 6309168909932141279, guid: 02d8162a457af4327bf02aa1d97d5010,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6309168909932141279, guid: 02d8162a457af4327bf02aa1d97d5010,
         type: 3}
@@ -951,7 +951,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1971514190
 GameObject:
@@ -1080,7 +1080,7 @@ PrefabInstance:
     - target: {fileID: 407448969923765536, guid: a3768ae56d2404c4a9899b5b214a6abb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 407448969923765536, guid: a3768ae56d2404c4a9899b5b214a6abb,
         type: 3}
@@ -1100,7 +1100,7 @@ PrefabInstance:
     - target: {fileID: 407448969923765538, guid: a3768ae56d2404c4a9899b5b214a6abb,
         type: 3}
       propertyPath: m_Name
-      value: run_1
+      value: Character
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3768ae56d2404c4a9899b5b214a6abb, type: 3}
@@ -1155,7 +1155,7 @@ PrefabInstance:
     - target: {fileID: 6309168909932141279, guid: 02d8162a457af4327bf02aa1d97d5010,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6309168909932141279, guid: 02d8162a457af4327bf02aa1d97d5010,
         type: 3}
