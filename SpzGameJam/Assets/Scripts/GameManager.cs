@@ -74,7 +74,16 @@ public class GameManager : MonoBehaviour
     public void SetCurrentIndex(int _index)
     {
         CurrentPatternIndex = _index;
+        var animator = charaRender.GetComponent<Animator>();
+        animator.enabled = false;
         charaRender.sprite = charaPatterns[_index];
+    }
+
+    public void EnableRunning()
+    {
+        var animator = charaRender.GetComponent<Animator>();
+        animator.enabled = true;
+        CurrentPatternIndex = -1;
     }
 
     public void GameOver()

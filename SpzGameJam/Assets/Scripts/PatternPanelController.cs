@@ -45,6 +45,8 @@ public class PatternPanelController : MonoBehaviour
         if (GameManager.instance.CurrentPatternIndex == this.patternIndex)
         {
             GameManager.instance.AddScore(this.scorePoint);
+            GameManager.instance.EnableRunning();
+
         }
         else
         {
