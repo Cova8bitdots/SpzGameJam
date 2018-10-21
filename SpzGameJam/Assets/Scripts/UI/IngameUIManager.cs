@@ -86,5 +86,17 @@ namespace GameJam.UI
         }
        #endregion //) ===== STATE_MACHINE_CONTROLL =====
  
+
+
+        //-----------------------------------------
+        // Score 管理
+        //-----------------------------------------
+        #region ===== SCORE =====
+
+        public void AddScore( int _value )
+        {
+            TopUICtrl?.AddText( _value );
+        }
+        #endregion //) ===== SCORE =====
     }
 }
