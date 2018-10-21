@@ -21,12 +21,12 @@ namespace GameJam.UI
         #region ===== CONSTS =====
 
         //Animator Trigger 定義
-        protected const string ANIMATOR_TRIGGER_BUTTON_PRESS_DOWN = "highlighted";
-        protected const string ANIMATOR_TRIGGER_BUTTON_CLICKED = "pressed";
-        protected const string ANIMATOR_TRIGGER_BUTTON_CANCEL_TAP = "highlighted_out";
+        protected const string ANIMATOR_TRIGGER_BUTTON_PRESS_DOWN = "OnPressed";
+        protected const string ANIMATOR_TRIGGER_BUTTON_CLICKED = "OnReleaseSucceeded";
+        protected const string ANIMATOR_TRIGGER_BUTTON_CANCEL_TAP = "OnReleaseCanceled";
 
-        protected const string ANIMATOR_TRIGGER_BUTTON_ENABLE = "normal";
-        protected const string ANIMATOR_TRIGGER_BUTTON_DISABLE = "disabled";
+        protected const string ANIMATOR_TRIGGER_BUTTON_ENABLE = "Enabled";
+        protected const string ANIMATOR_TRIGGER_BUTTON_DISABLE = "Disabled";
 
         /// <summary>
         /// 初期化用パラメータ
