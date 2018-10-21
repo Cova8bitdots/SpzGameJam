@@ -53,6 +53,11 @@ namespace GameJam.UI
     		{
     			return;
     		}
+
+			if( _param.ButtonSprite != null )
+			{
+				m_buttonImage.sprite = _param.ButtonSprite;
+			}
     	}
 
     	public void SetHorizontalFlipImage()
