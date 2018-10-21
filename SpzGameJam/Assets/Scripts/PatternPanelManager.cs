@@ -34,7 +34,7 @@ public class PatternPanelManager : MonoBehaviour
                 var panelController = panel.GetComponent<PatternPanelController>();
                 panelController.SetPattern();
                 panel.SetActive(true);
-                panelController.StartMoving(panelMovingTargetPos, 1);
+                panelController.StartMoving(panelMovingTargetPos, GameManager.instance.ScrollingSpeed);
                 break;
             }
         }

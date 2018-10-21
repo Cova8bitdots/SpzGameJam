@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     private float panelSpawnTimer = 0f;
     private float panelSpawnInternal = 2f;
     private float gameTime = 0;
+    public int Score { get; private set; }
+    private int nextLevelScore = 30;
+    public float ScrollingSpeed = 1f;
 
     [SerializeField] PatternPanelManager panelManager;
 
@@ -39,5 +42,21 @@ public class GameManager : MonoBehaviour
             panelManager.SpawnPatternPanel();
             panelSpawnTimer = 0;
         }
+
+        if (Score > nextLevelScore)
+        {
+            ChangeScrollingSpeed(ScrollingSpeed + 0.5f);
+            nextLevelScore += 20;
+        }
+    }
+
+    public void AddScore(int score)
+    {
+        Score += score;
+    }
+
+    public void ChangeScrollingSpeed(float speed)
+    {
+        ScrollingSpeed = speed;
     }
 }

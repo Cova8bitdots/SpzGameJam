@@ -5,10 +5,12 @@ using UnityEngine;
 public class PatternPanelController : MonoBehaviour
 {
     private bool cleared = false;
+    private int scorePoint = 10;
+    private int patternIndex;
 
     public void SetPattern()
     {
-
+        patternIndex = Random.Range(1, 5);
     }
 
     public void StartMoving(Transform target, float speed)
@@ -22,7 +24,7 @@ public class PatternPanelController : MonoBehaviour
         {
             if (cleared)
             {
-                yield break;
+                break;
             }
             var step = Time.deltaTime * speed * 30;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
@@ -30,5 +32,11 @@ public class PatternPanelController : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+    }
+
+    public void PatternMatched()
+    {
+        cleared = true;
+        GameManager.instance.AddScore(scorePoint);
     }
 }
