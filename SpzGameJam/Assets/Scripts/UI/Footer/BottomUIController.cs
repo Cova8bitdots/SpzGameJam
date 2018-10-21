@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace GameJam.UI
 {
+    public class ButtonSettings
+    {
+        public int Index;
+        public Sprite ButtonImage;
+    }
     public class BottomUIController : MonoBehaviour
     {
         //-----------------------------------------
@@ -29,7 +34,7 @@ namespace GameJam.UI
         Transform m_ButtonUIRoot = null;
         Transform ButtonUIRoot{get{return m_ButtonUIRoot;}}
 
-
+        List<NormalButtonController> m_Buttons = new List<NormalButtonController>();
         #endregion //) ===== MEMBER_VARIABLES =====
 
         //-----------------------------------------
@@ -83,9 +88,26 @@ namespace GameJam.UI
                 p.OnButtonClicked = OnButtonClicked;
 
                 ctrl.Init( p );
+                m_Buttons.Add( ctrl );
             }
 
             return true;
+        }
+        
+        /// <summary>
+        /// ボタン選択肢更新
+        /// </summary>
+        /// <param name="_settings"></param>
+        public void UpdateButtons( params ButtonSettings[] _settings )
+        {
+            for (int i = 0; i < _settings.Length; i++)
+            {
+                var p = new NormalButtonController.InitParam();
+                p.ItemIndex = _settings[i].Index;
+                p.ButtonSprite = _settings[i].ButtonImage;
+                p.OnButtonClicked = OnButtonClicked;
+                m_Buttons[i].Init( p );
+            }
         }
         #endregion //) ===== INITIALIZE =====
 
@@ -98,8 +120,7 @@ namespace GameJam.UI
 
         public void OnButtonClicked( int _index )
         {
-            // TODO:
-            // GameManager に対してIndexを投げる
+            GameManager.instance?.SetCurrentIndex( _index );
         }
 
         #endregion //) ===== BUTTON_CALLBACK =====

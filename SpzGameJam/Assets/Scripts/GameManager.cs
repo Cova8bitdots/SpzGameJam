@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private int nextLevelScore = 30;
     public float ScrollingSpeed = 1f;
 
-    [SerializeField] PatternPanelManager panelManager;
+    [SerializeField] PatternPanelManager panelManager = null;
 
     void Awake()
     {
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         panelSpawnTimer += Time.deltaTime;
         if (panelSpawnTimer > panelSpawnInternal)
         {
-            panelManager.SpawnPatternPanel();
+            panelManager?.SpawnPatternPanel();
             panelSpawnTimer = 0;
         }
 
@@ -58,5 +58,14 @@ public class GameManager : MonoBehaviour
     public void ChangeScrollingSpeed(float speed)
     {
         ScrollingSpeed = speed;
+    }
+
+    /// <summary>
+    /// 選択肢ボタン選択コールバック
+    /// </summary>
+    /// <param name="_index"></param>
+    public void SetCurrentIndex( int _index )
+    {
+
     }
 }
