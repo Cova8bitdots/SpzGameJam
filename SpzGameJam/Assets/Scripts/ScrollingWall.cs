@@ -5,10 +5,11 @@ public class ScrollingWall : MonoBehaviour
     public float scrollingSpeed = 1;
     public int direction = 1;
 
+    private Renderer m_renderer = null;
+    private Renderer ImageRenderer{get{return m_renderer ?? ( m_renderer = GetComponent<Renderer>()); }}
     void Update()
     {
         var offset = new Vector2(Time.time * scrollingSpeed * direction, 0);
-        var rend = GetComponent<Renderer>();
-        rend.material.mainTextureOffset = offset;
+        ImageRenderer.material.mainTextureOffset = offset;
     }
 }
