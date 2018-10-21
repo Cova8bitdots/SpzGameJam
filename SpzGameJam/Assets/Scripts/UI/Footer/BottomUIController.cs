@@ -98,8 +98,7 @@ namespace GameJam.UI
 
         public void OnButtonClicked( int _index )
         {
-            // TODO:
-            // GameManager に対してIndexを投げる
+            GameManager.instance?.SetCurrentIndex( _index );
         }
 
         #endregion //) ===== BUTTON_CALLBACK =====

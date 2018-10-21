@@ -40,4 +40,13 @@ public class GameManager : MonoBehaviour
             panelSpawnTimer = 0;
         }
     }
+
+    /// <summary>
+    /// 選択肢ボタン選択コールバック
+    /// </summary>
+    /// <param name="_index"></param>
+    public void SetCurrentIndex( int _index )
+    {
+
+    }
 }
