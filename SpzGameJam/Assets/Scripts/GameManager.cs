@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<Sprite> charaPatterns;
     [SerializeField] GameObject gameOverTextObj;
 
+    bool isEnableRespawn = true;
     void Awake()
     {
         if (instance == null)
@@ -43,8 +44,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         panelSpawnTimer += Time.deltaTime;
-        if (panelSpawnTimer > panelSpawnInternal)
+        if (panelSpawnTimer > panelSpawnInternal && isEnableRespawn)
         {
+            isEnableRespawn = false;
             panelManager?.SpawnPatternPanel();
             GameJam.UI.IngameUIManager.I.ResetButtons();
             panelSpawnTimer = 0;
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int score)
     {
+        isEnableRespawn = true;
         Score += score;
         IngameUIManager.Instance.AddScore(score);
     }
