@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] PatternPanelManager panelManager = null;
     [SerializeField] SpriteRenderer charaRender;
     [SerializeField] List<Sprite> charaPatterns;
+    [SerializeField] GameObject gameOverTextObj;
 
     void Awake()
     {
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-
+        gameOverTextObj.SetActive(true);
+        Time.timeScale = 0;
     }
 }
