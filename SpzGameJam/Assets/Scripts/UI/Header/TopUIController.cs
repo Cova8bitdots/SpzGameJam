@@ -26,7 +26,8 @@ namespace GameJam.UI
         TextMeshProUGUI m_ScoreText = null;
         TextMeshProUGUI ScoreText{get{return m_ScoreText;}}
 
-
+        int m_currentScore = 0;
+        public int CurrentScore{get{return m_currentScore;}}
         #endregion //) ===== MEMBER_VARIABLES =====
 
         //-----------------------------------------
@@ -42,7 +43,7 @@ namespace GameJam.UI
                 return false;
             }
 
-            SetText( 0 );
+            AddText( 0 );
 
             return true;
         }
@@ -56,14 +57,11 @@ namespace GameJam.UI
         #region ===== PUBLIC_APIS =====
 
 
-        public void SetText( int _value )
+        public void AddText( int _value )
         {
-            if( _value < 0 )
-            {
-                return;
-            }
+            m_currentScore += _value;
 
-            ScoreText.text = _value.ToString();
+            ScoreText.text = m_currentScore.ToString();
         }
         #endregion //) ===== PUBLIC_APIS =====
     }
