@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameJam.UI;
+using UnityEngine.UI;
 
 public class PatternPanelController : MonoBehaviour
 {
@@ -8,9 +10,12 @@ public class PatternPanelController : MonoBehaviour
     private int scorePoint = 10;
     private int patternIndex;
 
-    public void SetPattern()
+    public void SetPattern(List<Sprite> patterns)
     {
-        patternIndex = Random.Range(1, 5);
+        patternIndex = Random.Range(0, 4);
+        var sprite = patterns[patternIndex];
+        var rend = this.GetComponent<SpriteRenderer>();
+        rend.sprite = sprite;
     }
 
     public void StartMoving(Transform target, float speed)
@@ -32,11 +37,18 @@ public class PatternPanelController : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+        CheckPattern();
     }
 
-    public void PatternMatched()
+    void CheckPattern()
     {
-        cleared = true;
-        GameManager.instance.AddScore(scorePoint);
+        if (GameManager.instance.CurrentPatternIndex == this.patternIndex)
+        {
+            GameManager.instance.AddScore(this.scorePoint);
+        }
+        else
+        {
+            GameManager.instance.GameOver();
+        }
     }
 }
