@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameJam.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int Score { get; private set; }
     private int nextLevelScore = 30;
     public float ScrollingSpeed = 1f;
+
+    public int CurrentPatternIndex { get; private set; }
 
     [SerializeField] PatternPanelManager panelManager = null;
 
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         Score += score;
+        IngameUIManager.Instance.AddScore(score);
     }
 
     public void ChangeScrollingSpeed(float speed)
@@ -64,7 +68,12 @@ public class GameManager : MonoBehaviour
     /// 選択肢ボタン選択コールバック
     /// </summary>
     /// <param name="_index"></param>
-    public void SetCurrentIndex( int _index )
+    public void SetCurrentIndex(int _index)
+    {
+        CurrentPatternIndex = _index;
+    }
+
+    public void GameOver()
     {
 
     }

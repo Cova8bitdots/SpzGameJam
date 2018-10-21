@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameJam.UI;
+using UnityEngine.UI;
 
 public class PatternPanelController : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class PatternPanelController : MonoBehaviour
     public void SetPattern()
     {
         patternIndex = Random.Range(1, 5);
+        var rend = this.GetComponent<Renderer>();
+        rend.material.SetFloat("_MaskTex", patternIndex);
     }
 
     public void StartMoving(Transform target, float speed)
@@ -32,11 +36,18 @@ public class PatternPanelController : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+        CheckPattern();
     }
 
-    public void PatternMatched()
+    void CheckPattern()
     {
-        cleared = true;
-        GameManager.instance.AddScore(scorePoint);
+        if (GameManager.instance.CurrentPatternIndex == this.patternIndex)
+        {
+            GameManager.instance.AddScore(this.scorePoint);
+        }
+        else
+        {
+            GameManager.instance.GameOver();
+        }
     }
 }
