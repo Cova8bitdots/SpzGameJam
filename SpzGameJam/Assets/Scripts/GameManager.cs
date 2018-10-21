@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public int CurrentPatternIndex { get; private set; }
 
     [SerializeField] PatternPanelManager panelManager = null;
+    [SerializeField] SpriteRenderer charaRender;
+    [SerializeField] List<Sprite> charaPatterns;
 
     void Awake()
     {
@@ -71,6 +73,7 @@ public class GameManager : MonoBehaviour
     public void SetCurrentIndex(int _index)
     {
         CurrentPatternIndex = _index;
+        charaRender.sprite = charaPatterns[_index];
     }
 
     public void GameOver()
