@@ -10,11 +10,12 @@ public class PatternPanelController : MonoBehaviour
     private int scorePoint = 10;
     private int patternIndex;
 
-    public void SetPattern()
+    public void SetPattern(List<Sprite> patterns)
     {
-        patternIndex = Random.Range(1, 5);
-        var rend = this.GetComponent<Renderer>();
-        rend.material.SetFloat("_MaskTex", patternIndex);
+        patternIndex = Random.Range(0, 4);
+        var sprite = patterns[patternIndex];
+        var rend = this.GetComponent<SpriteRenderer>();
+        rend.sprite = sprite;
     }
 
     public void StartMoving(Transform target, float speed)

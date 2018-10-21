@@ -8,6 +8,8 @@ public class PatternPanelManager : MonoBehaviour
     [SerializeField] Transform panelMovingTargetPos;
     [SerializeField] GameObject patternPanelPrefab;
 
+    [SerializeField] List<Sprite> patterns;
+
     private int panelPooledAmount = 5;
     private List<GameObject> panels;
 
@@ -32,7 +34,7 @@ public class PatternPanelManager : MonoBehaviour
                 panel.transform.position = patternPanelSpawnPos.position;
                 panel.transform.rotation = Quaternion.identity;
                 var panelController = panel.GetComponent<PatternPanelController>();
-                panelController.SetPattern();
+                panelController.SetPattern(patterns);
                 panel.SetActive(true);
                 panelController.StartMoving(panelMovingTargetPos, GameManager.instance.ScrollingSpeed);
                 break;
